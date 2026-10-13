@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "domain_suffix": [
+        "pttime.org",
+        "dian115.com",
+        "qichiyu.com",
+        "muse.ai",
+        "acck.io"
+      ]
+    }
+  ]
+}
