@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "domain_suffix": [
+        "lzxpm.top",
+        "lan",
+        "local",
+        "home.arpa",
+        "internal",
+        "douyin.com",
+        "amemv.com",
+        "ixigua.com",
+        "douyinvod.com",
+        "iesdouyin.com",
+        "tailscale.com",
+        "tailscale.io",
+        "pttime.fun",
+        "pttime.cc",
+        "ptfans.cc",
+        "btschool.club",
+        "btschool.org",
+        "ipv6-tracker.m-team.cc",
+        "ipv4-tracker.m-team.cc",
+        "tracker.m-team.cc",
+        "tra1.m-team.cc",
+        "tra99.manfuz.co",
+        "tra1.m-team.io",
+        "tracker.m-team.io",
+        "rss.m-team.cc",
+        "rss.m-team.io",
+        "m-team.cc",
+        "m-team.io",
+        "hhanclub.net",
+        "hhan.club",
+        "gecacademy.cn",
+        "yan.com",
+        "lemon.rip",
+        "work.weixin.qq.com", 
+        "weixin.qq.com", 
+        "qq.com", 
+        "qpic.cn",
+        "qlogo.cn", 
+        "gtimg.cn", 
+        "gtimg.com", 
+        "servicewechat.com"
+      ],
+      "domain_keyword": [
+        "hhanclub",
+        "hhan"
+      ]
+    }
+  ]
+}
