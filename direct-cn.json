@@ -1,25 +1,124 @@
 {
-  "version": 1,
+  "version": 3,
   "rules": [
+    // =========================================================================
+    // 【集合 1：精准匹配 (domain)】
+    // 适用场景：必须完全一致的单点域名，不匹配子域名。
+    // 添加建议：NTP 授时服务器、特定 CDN 单节点、以及不想泛解析误伤的单点业务。
+    // =========================================================================
+    {
+      "domain": [
+        // --- 本地与基础服务 ---
+        "localhost",
+        "alibaba.cdn.steampipe.steamcontent.com",
+
+        // --- NTP / 授时服务 ---
+        "time1.cloud.tencent.com",
+        "ntp.aliyun.com",
+        "ntp1.aliyun.com",
+        "ntp2.aliyun.com",
+        "ntp3.aliyun.com",
+        "ntp4.aliyun.com",
+        "ntp5.aliyun.com",
+        "ntp6.aliyun.com",
+        "ntp7.aliyun.com",
+        "ntp.tencent.com",
+        "ntp1.tencent.com",
+        "ntp2.tencent.com",
+        "ntp3.tencent.com",
+        "ntp4.tencent.com",
+        "ntp5.tencent.com",
+        "cn.pool.ntp.org",
+
+        // --- 运营商一键登录 / 认证网关 ---
+        "id6.me",
+        "open.e.189.cn",
+        "hmrz.wo.cn",
+        "nishub1.10010.com",
+        "enrichgw.10010.com",
+
+        // --- 银行业务 / 办公笔记 ---
+        "app.yinxiang.com",
+        "cmbchina.com",
+        "cmbimg.com",
+
+        // --- 腾讯登录与安全 ---
+        "localhost.ptlogin2.qq.com",
+        "localhost.sec.qq.com",
+
+        // --- 音乐流媒体直连节点 ---
+        "music.163.com",
+        "music.taihe.com",
+        "songsearch.kugou.com",
+        "trackercdn.kugou.com",
+        "y.qq.com",
+        "streamoc.music.tc.qq.com",
+        "mobileoc.music.tc.qq.com",
+        "isure.stream.qqmusic.qq.com",
+        "dl.stream.qqmusic.qq.com",
+        "aqqmusic.tc.qq.com",
+        "music.migu.cn",
+
+        // --- 游戏与云服务直连 ---
+        "ff.dorado.sdo.com",
+        "battlenet.com.cn",
+        "wotgame.cn",
+        "wggames.cn",
+        "wowsgame.cn",
+        "gcloudcs.com",
+        "gcloudsdk.com",
+
+        // --- 苹果系统更新服务 ---
+        "mesu.apple.com",
+        "swscan.apple.com",
+        "swdownload.apple.com",
+        "swcdn.apple.com",
+        "swdist.apple.com",
+
+        // --- 下载 / 加速器 / 其他工具 ---
+        "sandai.net",
+        "n0808.com",
+        "ps.res.netease.com",
+        "uu.163.com",
+        "market.xiaomi.com",
+        "oray.com",
+        "orayimg.com"
+      ]
+    },
+
+    // =========================================================================
+    // 【集合 2：域名后缀匹配 (domain_suffix)】
+    // 适用场景：匹配该域名及其下属的所有子域名（最常用）。
+    // 添加建议：日常访问的网站、PT 站主域名、自建主域名、内网域名、国内大厂根域。
+    // =========================================================================
     {
       "domain_suffix": [
+        // --- 个人自建域名与局域网通用后缀 ---
         "lzxpm.top",
         "lan",
         "local",
         "home.arpa",
         "internal",
+
+        // --- 异地组网 / 虚拟局域网 ---
+        "tailscale.com",
+        "tailscale.io",
+
+        // --- 字节跳动 / 抖音矩阵 ---
         "douyin.com",
         "amemv.com",
         "ixigua.com",
         "douyinvod.com",
         "iesdouyin.com",
-        "tailscale.com",
-        "tailscale.io",
+
+        // --- PT 站点及 Tracker 地址 ---
         "pttime.fun",
         "pttime.cc",
         "ptfans.cc",
         "btschool.club",
         "btschool.org",
+        "m-team.cc",
+        "m-team.io",
         "ipv6-tracker.m-team.cc",
         "ipv4-tracker.m-team.cc",
         "tracker.m-team.cc",
@@ -29,25 +128,110 @@
         "tracker.m-team.io",
         "rss.m-team.cc",
         "rss.m-team.io",
-        "m-team.cc",
-        "m-team.io",
         "hhanclub.net",
         "hhan.club",
+
+        // --- 腾讯系生态根域 ---
+        "work.weixin.qq.com",
+        "weixin.qq.com",
+        "qq.com",
+        "qpic.cn",
+        "qlogo.cn",
+        "gtimg.cn",
+        "gtimg.com",
+        "servicewechat.com",
+
+        // --- 常见金融、游戏、加速及工具后缀 ---
+        "cmbchina.com",
+        "cmbimg.com",
+        "battlenet.com.cn",
+        "wotgame.cn",
+        "wggames.cn",
+        "wowsgame.cn",
+        "gcloudcs.com",
+        "gcloudsdk.com",
+        "sandai.net",
+        "n0808.com",
+        "uu.163.com",
+        "market.xiaomi.com",
+        "oray.com",
+        "orayimg.com",
+
+        // --- 其他业务与教育域名 ---
         "gecacademy.cn",
         "yan.com",
-        "lemon.rip",
-        "work.weixin.qq.com", 
-        "weixin.qq.com", 
-        "qq.com", 
-        "qpic.cn",
-        "qlogo.cn", 
-        "gtimg.cn", 
-        "gtimg.com", 
-        "servicewechat.com"
-      ],
+        "lemon.rip"
+      ]
+    },
+
+    // =========================================================================
+    // 【集合 3：关键字匹配 (domain_keyword)】
+    // 适用场景：只要域名中包含该子字符串就匹配（广度匹配）。
+    // 添加建议：特定多域名共用的特殊品牌名、PT 站缩写，谨慎添加以防误伤。
+    // =========================================================================
+    {
       "domain_keyword": [
         "hhanclub",
         "hhan"
+      ]
+    },
+
+    // =========================================================================
+    // 【集合 4：正则表达式匹配 (domain_regex)】
+    // 适用场景：特殊格式、多级动态主机名、局域网发现协议、STUN 探测打洞等。
+    // 添加建议：匹配规则具备特定前缀/后缀模式时使用，普通域名无需放这里。
+    // =========================================================================
+    {
+      "domain_regex": [
+        // --- RFC 预留与局域网环境 ---
+        "^[^.]+\\.lan$",
+        "^[^.]+\\.localdomain$",
+        "^[^.]+\\.example$",
+        "^[^.]+\\.invalid$",
+        "^[^.]+\\.localhost$",
+        "^[^.]+\\.test$",
+        "^[^.]+\\.local$",
+        "^[^.]+\\.home\\.arpa$",
+        "^[^.]+\\.direct$",
+
+        // --- Windows 域控服务记录 (MS DCS) ---
+        "^PDC\\._msDCS\\.[^.]+\\.[^.]+$",
+        "^DC\\._msDCS\\.[^.]+\\.[^.]+$",
+        "^GC\\._msDCS\\.[^.]+\\.[^.]+$",
+
+        // --- 路由器与高校授时 ---
+        "^[^.]+\\.router\\.asus\\.com$",
+        "^time\\.[^.]+\\.edu\\.cn$",
+        "^[^.]+\\.time\\.edu\\.cn$",
+        "^[^.]+\\.ntp\\.org\\.cn$",
+
+        // --- 运营商与政企认证 ---
+        "^[^.]+\\.cmpassport\\.com$",
+        "^[^.]+\\.wosms\\.cn$",
+        "^[^.]+\\.pingan\\.com\\.cn$",
+        "^[^.]+\\.10099\\.com\\.cn$",
+        "^[^.]+\\.microdone\\.cn$",
+        "^[^.]+\\.jegotrip\\.com\\.cn$",
+
+        // --- 微信、网易、音视频正则 ---
+        "^localhost\\.[^.]+\\.weixin\\.qq\\.com$",
+        "^[^.]+\\.music\\.163\\.com$",
+        "^[^.]+\\.126\\.net$",
+        "^[^.]+\\.kuwo\\.cn$",
+        "^[^.]+\\.y\\.qq\\.com$",
+        "^[^.]+\\.xiami\\.com$",
+        "^[^.]+\\.music\\.migu\\.cn$",
+        "^[^.]+\\.blzstatic\\.cn$",
+        "^[^.]+\\.ff14\\.sdo\\.com$",
+        "^[^.]+\\.mcdn\\.bilivideo\\.cn$",
+
+        // --- STUN NAT 穿透服务探测 ---
+        "^(.+\\.)?stun\\.[^.]+\\.cn$",
+        "^(.+\\.)?stun\\.[^.]+\\.[^.]+\\.cn$",
+        "^(.+\\.)?stun\\.[^.]+\\.[^.]+\\.[^.]+\\.cn$",
+        "^(.+\\.)?stun\\.[^.]+\\.[^.]+\\.[^.]+\\.[^.]+\\.cn$",
+        "^stun\\.[^.]+\\.cn$",
+        "^stun\\.[^.]+\\.[^.]+\\.cn$"
       ]
     }
   ]
