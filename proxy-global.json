@@ -1,8 +1,9 @@
 {
-  "version": 1,
+  "version": 2,
   "rules": [
     {
       "domain_suffix": [
+        // --- 机场 / 自建服务前台 ---
         "di0.uk",
         "vmiss.com",
         "sukaka.top",
@@ -12,6 +13,17 @@
         "qichiyu.com",
         "muse.ai",
         "acck.io",
+
+        // --- M-Team 前端 / API / 静态资源 ---
+        // Cloudflare 站点，且对大陆 IP 做站点级跳转封禁（实测直接访问返回
+        // 302 → https://www.google.com/，证书为 *.m-team.cc 合法证书），
+        // 所以这些「网页类」子域必须走代理。
+        // 只列精确主机名，不用 m-team.cc 后缀 —— 后缀会把 tracker.* 一起带走，
+        // 而 tracker 必须直连（tracker 记录 IP 必须与 peer 看到的家宽 IP 一致）。
+        // tracker / tra1 / tra99.manfuz.co 保留在 direct-cn.json。
+        "m-team.io",
+
+        // --- Google 服务域名 ---
         "services.googleapis.cn",
         "googleapis.cn",
         "gstatic.com",
@@ -24,6 +36,18 @@
         "googleusercontent.com",
         "s.gvt1.com",
         "browserleaks.com"
+      ]
+    },
+    {
+      "domain": [
+        // M-Team 网页类子域：走代理（顺序上 proxy 集合先于 direct 集合，精确匹配优先于后缀）
+        "m-team.cc",
+        "www.m-team.cc",
+        "kp.m-team.cc",
+        "api.m-team.cc",
+        "rss.m-team.cc",
+        "img.m-team.cc",
+        "static.m-team.cc"
       ]
     }
   ]
