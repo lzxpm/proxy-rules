@@ -24,17 +24,23 @@
         "m-team.io",
 
         // --- Google 服务域名 ---
+        // 本集合在 config.json 中已前置到 direct-cn / geosite-cn 之前：
+        // 这里加的域名会强制走 FakeIP + 代理，不会被 CN 集合截走。
         "services.googleapis.cn",
         "googleapis.cn",
+        "googleapis.com",
         "gstatic.com",
         "clientservices.googleapis.com",
         "xn--ngstr-lra8j.com",
         "gvt1.com",
         "gvt2.com",
         "gvt3.com",
+        "gvt9.com",
+        "googlevideo.com",
         "ggpht.com",
         "googleusercontent.com",
-        "s.gvt1.com"
+        "s.gvt1.com",
+        "browserleaks.com"
       ]
     },
     {
